@@ -1,14 +1,23 @@
 Product Perspective
 
-Income tax calculation is a very lenthy and complex system. There are many fields and criterias of income, so the calculation process needs a long time. Generally in Bangladesh, people do the calculation manually. So there is very much chance of occuring error in calculation. Its also very time consuming and you have to go to bring the forms and study a lot on them. Our web base software calculates after getting the information and it can be done online.  It’s a automated process to make the whole income tax calculation. Thus it makes tax payers life easy.
+Income tax calculation is a very lenthy and complex system. There are many fields and criterias of income, so the
+calculation process needs a long time. Generally in Bangladesh, people do the calculation manually. So there is very
+much chance of occuring error in calculation. Its also very time consuming and you have to go to bring the forms and
+study a lot on them. Our web base software calculates after getting the information and it can be done online.  It’s a
+automated process to make the whole income tax calculation. Thus it makes tax payers life easy.
 
-Our product is “iTax” which calculates the income tax of any Bangladeshi individuals or other tax payers (other than company).The main features of this web base software are-
+Our product is “iTax” which calculates the income tax of any Bangladeshi individuals or other tax payers (other tha
+company).The main features of this web base software are-
 
 i.Inserts general information and income related information to database.
 ii.Calculate income tax.
 iii.Fills up a pdf income tax form with given information.
 iv.Can print the pdf form.
-First a home page is visible to the users. From there, user can login or register. Then he/she has to fill up the form of general information. After filling all the forms (which comes one after another or you can jump to any form) a pdf form automatically open and it is filled up by which information you gave in the previous fields. That page will contain the total payable tax also. 
+
+First a home page is visible to the users. From there, user can login or register. Then he/she has to fill up the form
+of general information. After filling all the forms (which comes one after another or you can jump to any form) a pdf
+form automatically open and it is filled up by which information you gave in the previous fields. That page will
+contain the total payable tax also. 
 
 Project Scope
 The projects goal is to calculate income tax (Web base application). The scopes of the softwares are-
