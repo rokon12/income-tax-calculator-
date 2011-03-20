@@ -1,28 +1,89 @@
-Product Perspective
+iTax - Income Tax Calculator for Bangladesh
+============================================
 
-Income tax calculation is a very lenthy and complex system. There are many fields and criterias of income, so the
-calculation process needs a long time. Generally in Bangladesh, people do the calculation manually. So there is very
-much chance of occuring error in calculation. Its also very time consuming and you have to go to bring the forms and
-study a lot on them. Our web base software calculates after getting the information and it can be done online.  It’s a
-automated process to make the whole income tax calculation. Thus it makes tax payers life easy.
+OVERVIEW
+--------
+iTax is a web-based income tax calculation system designed specifically for Bangladeshi individuals and 
+non-corporate taxpayers. This application streamlines the traditionally complex and time-consuming process 
+of calculating income tax by automating calculations and generating official tax forms.
 
-Our product is “iTax” which calculates the income tax of any Bangladeshi individuals or other tax payers (other tha
-company).The main features of this web base software are-
+PRODUCT PERSPECTIVE
+-------------------
+Income tax calculation in Bangladesh has traditionally been a lengthy and complex manual process, prone to 
+errors and requiring significant time investment. Taxpayers must navigate multiple income categories, 
+understand various criteria, obtain physical forms, and perform intricate calculations by hand.
 
-i.Inserts general information and income related information to database.
-ii.Calculate income tax.
-iii.Fills up a pdf income tax form with given information.
-iv.Can print the pdf form.
+iTax transforms this process by:
+- Automating complex tax calculations
+- Providing an intuitive web interface accessible from anywhere
+- Eliminating manual calculation errors
+- Saving significant time and effort
+- Generating properly formatted tax documents instantly
 
-First a home page is visible to the users. From there, user can login or register. Then he/she has to fill up the form
-of general information. After filling all the forms (which comes one after another or you can jump to any form) a pdf
-form automatically open and it is filled up by which information you gave in the previous fields. That page will
-contain the total payable tax also. 
+KEY FEATURES
+------------
+1. User Management
+   - Secure user registration and authentication
+   - Personal profile management
+   - Session-based data persistence
 
-Project Scope
-The projects goal is to calculate income tax (Web base application). The scopes of the softwares are-
-i.It  calculates the income tax of indevisuals and other tax payers(other than company).
-ii.Stores the information in database.
-iii.This is a web base application, so that the tax payers can fill up the form online.
-iv.A pdf form will be filled up and can print it.
-v.This software just does the tax calculation but this will not submit the tax to NBR.
+2. Comprehensive Income Data Collection
+   - General taxpayer information
+   - Multiple income source categories
+   - Deduction and exemption handling
+   - Investment tax credit calculations
+
+3. Automated Tax Calculation
+   - Real-time tax computation based on current Bangladesh tax laws
+   - Support for various taxpayer categories (individuals and non-corporate entities)
+   - Accurate calculation of payable tax amounts
+
+4. Document Generation
+   - Automatic PDF form generation with pre-filled information
+   - Print-ready tax return documents
+   - Formatted according to NBR (National Board of Revenue) standards
+
+USER WORKFLOW
+-------------
+1. Registration/Login: Users begin by creating an account or logging into their existing profile
+2. Information Entry: Step-by-step forms guide users through entering personal and financial information
+3. Review & Calculate: System processes all information and calculates total tax liability
+4. Document Generation: Automatically generates a completed PDF tax form
+5. Print & Save: Users can print or save their completed tax documents
+
+PROJECT SCOPE
+-------------
+The project's goal is to create a comprehensive web-based income tax calculation application with the 
+following capabilities:
+
+Included Features:
+- Income tax calculation for individuals and non-corporate taxpayers
+- Secure data storage in database
+- Web-based application accessible online
+- PDF tax form generation and printing
+- Support for multiple income sources and deductions
+
+Limitations:
+- Does not submit tax payments directly to NBR
+- Does not support corporate tax calculations
+- Requires manual submission of printed forms to tax authorities
+
+TECHNICAL REQUIREMENTS
+----------------------
+- Java JDK 1.6 or higher
+- Maven 3.x
+- MySQL 5.x or H2 Database
+- Tomcat 7.x or compatible application server
+
+BENEFITS
+--------
+- Accuracy: Eliminates manual calculation errors
+- Efficiency: Reduces tax preparation time from hours to minutes
+- Accessibility: Available online from any device
+- Convenience: No need to obtain physical forms
+- Documentation: Automatically generates properly formatted tax documents
+
+DISCLAIMER
+----------
+This software is designed to assist with tax calculations but does not replace professional tax advice. 
+Users are responsible for verifying calculations and ensuring compliance with current tax laws.

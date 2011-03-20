@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!--
+		=====================================================================
+		******************** View Resolver *******************
+		=====================================================================
+	-->
+
+	<bean id="viewResolver"
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver"
+		p:prefix="/WEB-INF/jsp/" p:suffix=".jsp" />
+
+	<!--
+		=====================================================================
+		******************** message Source *******************
+		=====================================================================
+	-->
+	<bean id="messageSource"
+		class="org.springframework.context.support.ResourceBundleMessageSource"
+		p:basename="messages" />
+
+
+	<!--
+		=====================================================================
+		******************** User Login *******************
+		=====================================================================
+	-->
+
+	<bean id="loginService" class="com.rokon.service.LoginServiceImpl">
+		<property name="loginDao" ref="loginDao"></property>
+	</bean>
+
+	<bean id="loginValidator" class="com.rokon.validator.LoginValidator"></bean>
+
+	<bean name="/loginPage.htm" class="com.rokon.web.LoginController"
+		p:loginService-ref="loginService" p:formView="login" p:successView="loginSuccess"
+		p:validators-ref="loginValidator" p:commandClass="com.rokon.domain.Login" />
+
+	<bean name="/logoutPage.htm" class="com.rokon.web.LoginController"
+		p:loginService-ref="loginService" p:formView="login" p:successView="loginSuccess"
+		p:validators-ref="loginValidator" p:commandClass="com.rokon.domain.Login" />
+
+	<!--
+		=====================================================================
+		******************** User Registration *******************
+		=====================================================================
+	-->
+
+	<bean id="registrationService" class="com.rokon.service.RegisterServiceImpl">
+		<property name="loginDao" ref="loginDao"></property>
+	</bean>
+
+	<bean id="registrationValidator" class="com.rokon.validator.RegistrationValidator"></bean>
+
+	<bean name="/userResitration.htm" class="com.rokon.web.RegistrationController"
+		p:registerService-ref="registrationService" p:formView="registration"
+		p:successView="registrationSuccess" p:validators-ref="registrationValidator" ></bean>
+	<!--
+		=====================================================================
+		******************** User Info *******************
+		=====================================================================
+	-->
+
+	<bean id="userService" class="com.rokon.service.UserServiceImpl">
+		<property name="userInfoDao" ref="userInfoDao"></property>
+	</bean>
+
+	<bean id="userValidator" class="com.rokon.validator.UserValidator" />
+
+	<bean name="/userInfoSubmit.htm" class="com.rokon.web.UserController"
+		p:userService-ref="userService" p:formView="userForm" p:successView="userSuccess"
+		p:validator-ref="userValidator" />
+
+	<!--
+		=====================================================================
+		******************** Salary Sheet *******************
+		=====================================================================
+	-->
+
+	<bean id="getSalary" class="com.rokon.service.SalaryServiceImpl">
+		<property name="salaryDao" ref="salaryDao" />
+	</bean>
+
+	<bean id="salaryValidator" class="com.rokon.validator.SalaryValidator"></bean>
+
+	<bean name="/salarySheet.htm" class="com.rokon.web.SalaryController"
+		p:getSalary-ref="getSalary" p:formView="salarySheet" p:successView="salarySheetSuccess"
+		p:validator-ref="salaryValidator" />
+
+	<!--
+		=====================================================================
+		******************** House Property *******************
+		=====================================================================
+	-->
+
+	<bean id="getHouseProperty" class="com.rokon.service.HousePropertyServiceImpl">
+		<property name="housePropertyDao" ref="housePropertyDao"></property>
+	</bean>
+
+	<bean id="housePropertyValidator" class="com.rokon.validator.HousePropertyValidator"></bean>
+
+	<bean name="/houseProperty.htm" class="com.rokon.web.HousePropertyController"
+		p:getHouseProperty-ref="getHouseProperty" p:formView="housePropertyForm"
+		p:successView="housePropertySuccess" p:validator-ref="housePropertyValidator" />
+
+	<!--
+		=====================================================================
+		******************** Investment of tax credit *******************
+		=====================================================================
+	-->
+
+	<bean id="getInvestmentTaxCredit" class="com.rokon.service.InvestmentTaxCreditImplService">
+		<property name="investmentTaxCreditDao" ref="investmentTaxCreditDao"></property>
+	</bean>
+
+	<bean name="/investmentCredit.htm" class="com.rokon.web.InvestmentTaxCreditController"
+		p:getInvestmentTaxCredit-ref="getInvestmentTaxCredit" p:formView="investmentCreditForm" />
+
+	<!--
+		=====================================================================
+		******************** Statement of asset *******************
+		=====================================================================
+	-->
+
+	<bean id="getStatementOfAssets" class="com.rokon.service.StatementOfAssetsServiceImpl">
+		<property name="statementOfAssetsDao" ref="statementOfAssetsDao"></property>
+	</bean>
+
+	<bean name="/statmentOfAssetForm.htm" class="com.rokon.web.StatementOfAssetsController"
+		p:getStatementOfAssets-ref="getStatementOfAssets" p:formView="statementOfAssetsPropertyForm"
+		p:successView="statementSuccess" />
+
+	<!--
+		=====================================================================
+		******************** particuler expenditure *******************
+		=====================================================================
+	-->
+
+	<bean id="getParticularsOfExpenditure" class="com.rokon.service.ParticularsOfExpenditureServiceImpl">
+		<property name="particularsOfExpenditureDao" ref="particularsOfExpenditureDao"></property>
+	</bean>
+
+	<bean name="/particularExpForm.htm" class="com.rokon.web.ParticularsOfExpenditureController"
+		p:getParticularsOfExpenditure-ref="getParticularsOfExpenditure"
+		p:formView="particularsOfExpenditureForm" p:successView="particularsOfExpenditureSuccess" />
+
+
+	<!-- ===================== Security=========================== -->
+	<bean id="security" class="com.rokon.service.SecurityServiceImpl">
+		<property name="securityDao" ref="securityDao"></property>
+	</bean>
+
+	<bean name="/security.htm" class="com.rokon.web.SecurityController"
+		p:securityService-ref="security" p:formView="security"></bean>
+
+
+
+	<!-- ===========Agriculture Income =============== -->
+	<bean id="agriculture" class="com.rokon.service.AgricultureIncomeServiceImpl">
+		<property name="agricultureIncomeDao" ref="agricultureIncomeDao"></property>
+	</bean>
+
+	<bean id="agricultureValidator" class="com.rokon.validator.AgricultureIncomeValidator"></bean>
+
+	<bean name="/agriculture.htm" class="com.rokon.web.AgricultureIncomeController"
+		p:agricultureIncomeService-ref="agriculture" p:formView="agriculture"
+		p:validator-ref="agricultureValidator"></bean>
+
+	<!--
+		===================== Capital gain, foreign Income, other
+		sources========
+	-->
+	<bean id="capitalGainBusiOtherService" class="com.rokon.service.CapitalGainBusiOtherServiceImpl">
+		<property name="capitalGainBusiOtherDao" ref="capitalGainBusiOtherDao"></property>
+	</bean>
+
+	<bean name="/captalgain.htm" class="com.rokon.web.CapitalGainBusiOtherController"
+		p:capitalGainBusiOtherService-ref="capitalGainBusiOtherService"
+		p:formView="capitalGainBusiOther"></bean>
+
+
+	<!--========== Income From Business or Profession===========-->
+	<bean id="businessOrProfessionalService" class="com.rokon.service.BusinessOrProfessionalServiceImpl">
+		<property name="businessOrProfessionalDao" ref="businessOrProfessionalDao"></property>
+	</bean>
+
+	<bean name="/businessOrProfessional.htm" class="com.rokon.web.BusinessOrProfessionalController"
+		p:businessOrProfessionalService-ref="businessOrProfessionalService" p:formView="businessOrProfessional"></bean>
+
+	<!-- ============= Final Sheet================== -->
+
+	<bean name="/finalSheet.htm"
+		class="org.springframework.web.servlet.mvc.ParameterizableViewController">
+		<property name="viewName" value="showResult" />
+	</bean>
+
+	<!--============HOME PAGE CONTROLLER=================  -->
+	<bean name="/homePage.htm" class="com.rokon.web.HomePageController">
+	</bean>
+
+
+	<bean name="/adminHome.htm"
+		class="org.springframework.web.servlet.mvc.ParameterizableViewController">
+		<property name="viewName" value="admin" />
+	</bean>
+
+	<bean name="/about.htm"
+		class="org.springframework.web.servlet.mvc.ParameterizableViewController">
+		<property name="viewName" value="about" />
+	</bean>
+
+
+	<!-- =========================Contact us servlet=============== -->
+	<bean id="contact_us" class="com.rokon.validator.ContactUsValidator"></bean>
+
+	<bean name="/contact_us.htm" class="com.rokon.web.ContactUsController"
+		p:formView="contactUs" p:successView="contactSuccess">
+	</bean>
+
+	<!-- =================Help Page ================== -->
+	<bean name="/help.htm"
+		class="org.springframework.web.servlet.mvc.ParameterizableViewController">
+		<property name="viewName" value="help"></property>
+	</bean>
+
+	<!-- ===========Result populated servlet =================-->
+	<bean id="reportService" class="com.rokon.service.ReportServiceImpl">
+		<property name="loginDao" ref="loginDao"></property>
+		<property name="salaryDao" ref="salaryDao" />
+		<property name="housePropertyDao" ref="housePropertyDao"></property>
+		<property name="investmentTaxCreditDao" ref="investmentTaxCreditDao"></property>
+		<property name="particularsOfExpenditureDao" ref="particularsOfExpenditureDao"></property>
+		<property name="securityDao" ref="securityDao"></property>
+		<property name="agricultureIncomeDao" ref="agricultureIncomeDao"></property>
+		<property name="capitalGainBusiOtherDao" ref="capitalGainBusiOtherDao"></property>
+		<property name="businessOrProfessionalDao" ref="businessOrProfessionalDao"></property>
+		<property name="statementOfAssetsDao" ref="statementOfAssetsDao"></property>
+		<property name="userInfoDao" ref="userInfoDao"></property>
+	</bean>
+
+	<bean name="/report.htm" class="com.rokon.web.ResultPopulateController"
+		p:reportService-ref="reportService" />
+
+</beans>
